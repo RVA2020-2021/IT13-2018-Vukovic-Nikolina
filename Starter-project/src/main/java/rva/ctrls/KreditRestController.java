@@ -27,7 +27,7 @@ public class KreditRestController {
 
 	@Autowired
 	private KreditRepository kreditRepository;
-	
+	 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
