@@ -23,7 +23,7 @@ public class Kredit implements Serializable {
 	@SequenceGenerator(name="KREDIT_ID_GENERATOR", sequenceName="KREDIT_SEQ", allocationSize = 1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="KREDIT_ID_GENERATOR")
 	private Integer id;
-
+ 
 	private String naziv;
 
 	private String opis;
@@ -32,7 +32,7 @@ public class Kredit implements Serializable {
 
 	@JsonIgnore
 	//bi-directional many-to-one association to Klijent
-	@OneToMany(mappedBy="kredit")
+	@OneToMany(mappedBy="kredit", cascade = {CascadeType.DETACH, CascadeType.REMOVE} )
 	private List<Klijent> klijents;
 
 	public Kredit() {
@@ -87,7 +87,7 @@ public class Kredit implements Serializable {
 
 	public Klijent removeKlijent(Klijent klijent) {
 		getKlijents().remove(klijent);
-		klijent.setKredit(null);
+		klijent.setKredit(null); 
 
 		return klijent;
 	}

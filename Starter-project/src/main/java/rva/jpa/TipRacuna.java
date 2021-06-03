@@ -33,7 +33,7 @@ public class TipRacuna implements Serializable {
 
 	@JsonIgnore
 	//bi-directional many-to-one association to Racun
-	@OneToMany(mappedBy="tipRacuna")
+	@OneToMany(mappedBy="tipRacuna", cascade = {CascadeType.DETACH, CascadeType.REMOVE})
 	private List<Racun> racuns;
 
 	public TipRacuna() {
