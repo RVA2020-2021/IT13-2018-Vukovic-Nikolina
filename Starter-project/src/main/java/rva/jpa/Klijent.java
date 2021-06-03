@@ -91,7 +91,7 @@ public class Klijent implements Serializable {
 
 	public void setRacuns(List<Racun> racuns) {
 		this.racuns = racuns;
-	}
+	} 
 
 	public Racun addRacun(Racun racun) {
 		getRacuns().add(racun);
